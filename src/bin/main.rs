@@ -138,7 +138,7 @@ async fn at(uart: &mut Modem, cmd: &str, idle_ms: u64) -> heapless::Vec<u8, 256>
 }
 
 fn is_accepted_number(number: &str) -> bool {
-    ALLOWED_NUMBERS.iter().any(|n| {
+    ALLOWED_NUMBERS.iter().any(|(_, n)| {
         info!("checking number: {} against: {}", number, n);
         number.contains(n)
     })
